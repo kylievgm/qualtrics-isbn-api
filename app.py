@@ -98,6 +98,8 @@ def trigger_sync():
     sync_ftp_data()
     return jsonify({"status": "Database sync complete"})
 
+# Run sync automatically whenever Gunicorn loads the app
+sync_ftp_data()
+
 if __name__ == "__main__":
-    sync_ftp_data()
     app.run(host="0.0.0.0", port=5000)
